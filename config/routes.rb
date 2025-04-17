@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :incomes, only: %i[index edit]
   resources :people, only: %i[show edit index]
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
