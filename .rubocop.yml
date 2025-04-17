@@ -1,0 +1,104 @@
+inherit_from: .rubocop_todo.yml
+
+require:
+  - standard
+  - rubocop-performance
+  - rubocop-rails
+  - rubocop-faker
+  - rubocop-rspec
+
+inherit_gem:
+  standard: config/base.yml
+
+inherit_mode:
+  merge:
+    - Exclude
+
+AllCops:
+  TargetRubyVersion: 3.2
+  NewCops: enable
+  Exclude:
+    - "bin/*"
+    - "db/schema.rb"
+    - "vendor/**/*"
+    - "config/**/*"
+
+Layout/SpaceInsideHashLiteralBraces:
+  Enabled: true
+  EnforcedStyle: space
+  EnforcedStyleForEmptyBraces: no_space
+
+Style/GlobalVars:
+  AllowedVariables:
+
+Style/TrailingCommaInHashLiteral:
+  Enabled: true
+  EnforcedStyleForMultiline: consistent_comma
+
+Style/TrailingCommaInArrayLiteral:
+  Enabled: true
+  EnforcedStyleForMultiline: consistent_comma
+
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
+
+Layout/SpaceInLambdaLiteral:
+  Enabled: true
+  EnforcedStyle: require_space
+
+Metrics/AbcSize:
+  Enabled: true
+  Max: 40
+
+Metrics/BlockLength:
+  Enabled: false
+
+Metrics/ClassLength:
+  Enabled: false
+
+Metrics/CyclomaticComplexity:
+  Enabled: true
+  Max: 12
+
+Layout/LineLength:
+  Enabled: true
+  Max: 150
+  AllowedPatterns: ['^[\t ]*#.+\(.+\).+$'] # Allow long comments with method calls
+
+Metrics/MethodLength:
+  Enabled: true
+  Max: 35
+
+Metrics/ModuleLength:
+  Enabled: false
+
+Metrics/PerceivedComplexity:
+  Enabled: true
+  Max: 14
+
+Rails/RedundantPresenceValidationOnBelongsTo:
+  Enabled: false # The active_record setting for belongs_to_required_by_default is set to false on config/application.rb so this cop must be disabled
+
+RSpec:
+  Enabled: false
+
+RSpec/ExampleWithoutDescription:
+  Enabled: true
+  EnforcedStyle: disallow
+
+RSpec/Focus:
+  Enabled: true
+  Exclude:
+    - "spec/rails_helper.rb"
+    - "spec/spec_helper.rb"
+
+Style/HashSyntax:
+  Enabled: true
+  EnforcedStyle: ruby19_no_mixed_keys
+  EnforcedShorthandSyntax: always
+
+Rails/UnknownEnv:
+  Environments:
+    - development
+    - test
+    - production
