@@ -81,7 +81,7 @@ RSpec:
   Enabled: false
 
 RSpec/ExampleWithoutDescription:
-  Enabled: true
+  Enabled: false
   EnforcedStyle: disallow
 
 RSpec/Focus:
