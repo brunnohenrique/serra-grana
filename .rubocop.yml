@@ -2,9 +2,7 @@ inherit_from: .rubocop_todo.yml
 
 require:
   - standard
-  - rubocop-performance
   - rubocop-rails
-  - rubocop-faker
   - rubocop-rspec
 
 inherit_gem:
