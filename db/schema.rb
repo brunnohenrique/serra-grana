@@ -10,9 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2025_04_17_025914) do
+ActiveRecord::Schema[7.1].define(version: 2025_04_17_121121) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "incomes", force: :cascade do |t|
+    t.bigint "person_id", null: false
+    t.date "date"
+    t.string "description"
+    t.decimal "value", precision: 15, scale: 2
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["person_id"], name: "index_incomes_on_person_id"
+  end
 
   create_table "people", force: :cascade do |t|
     t.string "first_name"
@@ -23,4 +33,5 @@ ActiveRecord::Schema[7.1].define(version: 2025_04_17_025914) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "incomes", "people"
 end
