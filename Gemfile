@@ -24,8 +24,6 @@ gem "bootsnap", require: false
 
 gem "standard", require: false
 gem "rubocop", require: false
-gem "rubocop-faker", require: false
-gem "rubocop-performance", require: false
 gem "rubocop-rails", require: false
 gem "rubocop-rspec", require: false
 
