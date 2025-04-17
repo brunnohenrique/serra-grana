@@ -1,9 +1,9 @@
 inherit_from: .rubocop_todo.yml
 
-require:
-  - standard
+plugins:
   - rubocop-rails
   - rubocop-rspec
+  - rubocop-rspec_rails
 
 inherit_gem:
   standard: config/base.yml
